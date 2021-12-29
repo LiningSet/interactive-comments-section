@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>comments section</title>
+    <link rel="stylesheet" href="./app/scss/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="comments-section">
+      <div class="comment-container">
+        <div class="comment">
+          <div class="rating-container">
+            <div class="rating">
+              <button class="like"><i class="fas fa-plus"></i></button>
+              <div class="rating-display">4</div>
+              <button class="dislike"><i class="fas fa-minus"></i></button>
+            </div>
+
+            <button class="reply-initiate-btn mobile-btn">
+              <i class="fas fa-reply"></i> Reply
+            </button>
+          </div>
+          <div class="content">
+            <div class="heading">
+              <div class="heading-content">
+                <img
+                  src="./images/avatars/image-juliusomo.webp"
+                  alt=""
+                  class="avatar"
+                />
+                <h3>Mia Khalifa</h3>
+                <span class="date">2 days ago</span>
+              </div>
+              <button class="reply-initiate-btn desktop-btn">
+                <i class="fas fa-reply"></i> Reply
+              </button>
+            </div>
+            <p>
+              Impressive! Though it seems the drag feature could be improved.
+              But overall it looks incredible. You've nailed the design and the
+              responsiveness at various breakpoints works really well.
+            </p>
+          </div>
+        </div>
+        <div class="reply-temporary">
+          <div class="temp-inner">
+            <img
+              src="./images/avatars/image-ramsesmiron.png"
+              alt=""
+              class="avatar"
+            />
+            <button class="reply-submit-btn mobile-btn">REPLY</button>
+          </div>
+          <textarea name="" id="" cols="30" rows="5"></textarea>
+          <button class="reply-submit-btn desktop-btn">REPLY</button>
+        </div>
+
+        <div class="reply-section">
+          <div class="line"></div>
+          <div class="reply-container">
+            <div class="reply">
+              <div class="rating-container">
+                <div class="rating">
+                  <button class="like"><i class="fas fa-plus"></i></button>
+                  <div class="rating-display">4</div>
+                  <button class="dislike"><i class="fas fa-minus"></i></button>
+                </div>
+                <button class="reply-initiate-btn mobile-btn">
+                  <i class="fas fa-reply"></i> Reply
+                </button>
+              </div>
+              <div class="content">
+                <div class="heading">
+                  <div class="heading-content">
+                    <img
+                      src="./images/avatars/image-ramsesmiron.png"
+                      alt=""
+                      class="avatar"
+                    />
+                    <h3>Johnny sins</h3>
+                    <span class="date">1 week ago</span>
+                  </div>
+                  <button class="reply-initiate-btn desktop-btn">
+                    <i class="fas fa-reply"></i> Reply
+                  </button>
+                </div>
+                <p>
+                  <span class="mentioned">@Mia Khalifa</span>
+                  Impressive! Though it seems the drag feature could be
+                  improved. But overall it looks incredible. You've nailed the
+                  design and the responsiveness at various breakpoints works
+                  really well.
+                </p>
+              </div>
+            </div>
+            <div class="reply">
+              <div class="rating-container">
+                <div class="rating">
+                  <button class="like"><i class="fas fa-plus"></i></button>
+                  <div class="rating-display">4</div>
+                  <button class="dislike"><i class="fas fa-minus"></i></button>
+                </div>
+                <button class="reply-initiate-btn mobile-btn">
+                  <i class="fas fa-reply"></i> Reply
+                </button>
+              </div>
+              <div class="content">
+                <div class="heading">
+                  <div class="heading-content">
+                    <img
+                      src="./images/avatars/image-ramsesmiron.png"
+                      alt=""
+                      class="avatar"
+                    />
+                    <h3>Johnny sins</h3>
+                    <span class="date">1 week ago</span>
+                  </div>
+                  <button class="reply-initiate-btn desktop-btn">
+                    <i class="fas fa-reply"></i> Reply
+                  </button>
+                </div>
+                <p>
+                  <span class="mentioned">@Johnny sins</span>
+                  Impressive! Though it seems the drag feature could be
+                  improved. But overall it looks incredible. You've nailed the
+                  design and the responsiveness at various breakpoints works
+                  really well.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="send-comment">
+        <div class="send-inner">
+          <img
+            src="./images/avatars/image-ramsesmiron.png"
+            alt=""
+            class="avatar"
+          />
+          <button class="send-submit-btn mobile-btn">SEND</button>
+        </div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="5"
+          placeholder="Add a comment..."
+        ></textarea>
+        <button class="send-submit-btn desktop-btn">SEND</button>
+      </div>
+    </div>
+
+    <script src="./app/js/script.js"></script>
+  </body>
+</html>

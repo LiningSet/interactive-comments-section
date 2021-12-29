@@ -1,0 +1,253 @@
+@import "./variables";
+@import "./mixins";
+
+* {
+  margin: none;
+  padding: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: $Very-light-gray;
+  font-family: $font;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+p {
+  color: $Dark-blue;
+  line-height: 1.5;
+}
+
+.desktop-btn {
+  display: none;
+}
+.comments-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mentioned {
+  color: $Moderate-blue;
+  font-weight: 500;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .rating-container {
+    display: flex;
+    justify-content: space-between;
+    .rating {
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      background: $Very-light-gray;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      button {
+        background: none;
+        border: none;
+        color: $Light-grayish-blue;
+        transition: inherit;
+
+        &:hover {
+          color: $Moderate-blue;
+        }
+      }
+
+      .rating-display {
+        font-weight: 500;
+        color: $Moderate-blue;
+      }
+
+      > * {
+        padding: 0.75em;
+      }
+    }
+
+    .reply-initiate-btn {
+      @include replyBtn;
+    }
+  }
+  .comment {
+    background: $White;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 4vw;
+    padding: 1rem;
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .heading-content {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    font-size: 1rem;
+
+    .avatar {
+      width: 15%;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    .date {
+      color: $Grayish-Blue;
+    }
+  }
+
+  .reply-initiate-btn {
+    margin-left: auto;
+    @include replyBtn;
+  }
+}
+
+.reply-temporary {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: $White;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+
+  textarea {
+    resize: none;
+    padding: 1rem;
+    font-family: inherit;
+    border: 1px solid $Light-gray;
+    outline: none;
+    border-radius: 0.5rem;
+
+    &:focus,
+    &:active {
+      border-color: $Dark-blue;
+    }
+  }
+  .reply-submit-btn {
+    @include send-btn;
+  }
+
+  .temp-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .avatar {
+      width: 12.5%;
+      max-width: 3rem;
+    }
+  }
+}
+
+.reply-section {
+  display: flex;
+  gap: 5vw;
+  height: fit-content;
+
+  .line {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      background: $Light-gray;
+    }
+  }
+  .reply-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .reply {
+      @extend .comment;
+    }
+  }
+}
+
+.send-comment {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: $White;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+
+  textarea {
+    resize: none;
+    padding: 1rem;
+    font-family: inherit;
+    border: 1px solid $Light-gray;
+    outline: none;
+    border-radius: 0.5rem;
+
+    &:focus,
+    &:active {
+      border-color: $Dark-blue;
+    }
+  }
+  .send-submit-btn {
+    @include send-btn;
+  }
+
+  .send-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .avatar {
+      width: 12.5%;
+      max-width: 3rem;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .desktop-btn {
+    display: block;
+  }
+  .mobile-btn {
+    display: none;
+  }
+
+  .comment-container {
+    .comment {
+      flex-direction: row;
+      align-items: center;
+
+      .rating-container {
+        .rating {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  .reply-temporary {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+
+    .temp-inner {
+      width: auto;
+    }
+  }
+}
