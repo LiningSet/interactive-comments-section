@@ -18,19 +18,41 @@
     />
   </head>
   <body>
+    <div class="overlay">
+      <div class="popup">
+        <h2>Delete comment</h2>
+        <p>
+          Are you sure you want to delete this comment? This will remove the
+          comment and can't be undone.
+        </p>
+        <div class="options">
+          <button class="option-no">NO, CANCEL</button>
+          <button class="option-yes">YES, DELETE</button>
+        </div>
+      </div>
+    </div>
     <div class="comments-section">
       <div class="comment-container">
-        <div class="comment">
+        <div class="comment the-user">
           <div class="rating-container">
             <div class="rating">
               <button class="like"><i class="fas fa-plus"></i></button>
-              <div class="rating-display">4</div>
+              <div class="rating-display">23</div>
               <button class="dislike"><i class="fas fa-minus"></i></button>
             </div>
 
             <button class="reply-initiate-btn mobile-btn">
               <i class="fas fa-reply"></i> Reply
             </button>
+
+            <div class="user-exclusive-btns mobile-btn">
+              <button class="delete-btn">
+                <i class="fas fa-trash"></i> Delete
+              </button>
+              <button class="edit-btn unclickable">
+                <i class="fas fa-marker"></i> Edit
+              </button>
+            </div>
           </div>
           <div class="content">
             <div class="heading">
@@ -41,19 +63,32 @@
                   class="avatar"
                 />
                 <h3>Mia Khalifa</h3>
+                <span class="you">you</span>
                 <span class="date">2 days ago</span>
               </div>
               <button class="reply-initiate-btn desktop-btn">
                 <i class="fas fa-reply"></i> Reply
               </button>
+
+              <div class="user-exclusive-btns desktop-btn">
+                <button class="delete-btn">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+                <button class="edit-btn unclickable">
+                  <i class="fas fa-marker"></i> Edit
+                </button>
+              </div>
             </div>
-            <p>
+            <p contenteditable="false" class="comment-text">
               Impressive! Though it seems the drag feature could be improved.
               But overall it looks incredible. You've nailed the design and the
               responsiveness at various breakpoints works really well.
             </p>
+
+            <button class="update-btn">UPDATE</button>
           </div>
         </div>
+
         <div class="reply-temporary">
           <div class="temp-inner">
             <img
@@ -63,7 +98,7 @@
             />
             <button class="reply-submit-btn mobile-btn">REPLY</button>
           </div>
-          <textarea name="" id="" cols="30" rows="5"></textarea>
+          <textarea cols="30" rows="5" placeholder="Reply..."></textarea>
           <button class="reply-submit-btn desktop-btn">REPLY</button>
         </div>
 
@@ -96,7 +131,7 @@
                     <i class="fas fa-reply"></i> Reply
                   </button>
                 </div>
-                <p>
+                <p contenteditable="true">
                   <span class="mentioned">@Mia Khalifa</span>
                   Impressive! Though it seems the drag feature could be
                   improved. But overall it looks incredible. You've nailed the
@@ -153,17 +188,17 @@
           />
           <button class="send-submit-btn mobile-btn">SEND</button>
         </div>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="5"
-          placeholder="Add a comment..."
-        ></textarea>
+        <textarea cols="30" rows="5" placeholder="Add a comment..."></textarea>
         <button class="send-submit-btn desktop-btn">SEND</button>
       </div>
     </div>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./app/js/script.js"></script>
   </body>
 </html>

@@ -23,8 +23,56 @@ p {
   line-height: 1.5;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(58, 58, 58, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  display: none;
+
+  .popup {
+    background: $White;
+    width: 90%;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    .options {
+      display: flex;
+      width: 100%;
+      gap: 2vw;
+
+      .option-no {
+        flex: 1;
+        @include btn2($Dark-blue, $Grayish-Blue);
+      }
+      .option-yes {
+        flex: 1;
+        @include btn2($Soft-Red, $Pale-red);
+      }
+    }
+  }
+}
+
 .desktop-btn {
   display: none;
+}
+
+.user-exclusive-btns {
+  align-items: center;
+  gap: 2vw;
+  .delete-btn {
+    @include Btn1($Soft-Red, $Pale-red);
+  }
+  .edit-btn {
+    @include Btn1($Moderate-blue, $Light-grayish-blue);
+  }
 }
 .comments-section {
   width: 90%;
@@ -33,6 +81,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 2rem 0;
 }
 
 .mentioned {
@@ -77,7 +126,7 @@ p {
     }
 
     .reply-initiate-btn {
-      @include replyBtn;
+      @include Btn1($Moderate-blue, $Light-grayish-blue);
     }
   }
   .comment {
@@ -85,9 +134,91 @@ p {
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column-reverse;
-    justify-content: center;
+    justify-content: space-between;
     gap: 4vw;
     padding: 1rem;
+
+    .heading-content .you {
+      display: none;
+    }
+
+    .user-exclusive-btns {
+      display: none;
+      margin-left: auto;
+    }
+
+    .content {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .comment-text {
+        width: 100%;
+        border: none;
+        @extend p;
+      }
+
+      .update-btn {
+        display: none;
+      }
+    }
+  }
+
+  .the-user {
+    .mobile-btn {
+      display: block;
+    }
+    .reply-initiate-btn {
+      display: none;
+    }
+
+    .heading-content {
+      .you {
+        display: block;
+        color: $White;
+        background: $Moderate-blue;
+        padding: 0.125rem 0.25rem;
+        font-size: 0.75rem;
+        border-radius: 5px;
+        font-weight: 500;
+        margin-left: -1vw;
+      }
+    }
+
+    .user-exclusive-btns {
+      &.mobile-btn {
+        display: flex;
+      }
+      &.desktop-btn {
+        display: none;
+      }
+    }
+  }
+
+  .edit {
+    .content {
+      .comment-text {
+        @include textarea;
+        width: 100%;
+        max-width: 700px;
+        min-height: 7.5rem;
+        max-height: 10rem;
+        overflow: auto;
+        overflow-wrap: normal;
+      }
+
+      .update-btn {
+        @include btn2($Moderate-blue, $Light-grayish-blue);
+        align-self: flex-end;
+        display: block;
+      }
+    }
+
+    .unclickable {
+      color: $Light-grayish-blue;
+      pointer-events: none;
+    }
   }
 }
 
@@ -112,49 +243,13 @@ p {
 
     .date {
       color: $Grayish-Blue;
+      font-size: 0.85rem;
     }
   }
 
   .reply-initiate-btn {
     margin-left: auto;
-    @include replyBtn;
-  }
-}
-
-.reply-temporary {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background: $White;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 1rem;
-
-  textarea {
-    resize: none;
-    padding: 1rem;
-    font-family: inherit;
-    border: 1px solid $Light-gray;
-    outline: none;
-    border-radius: 0.5rem;
-
-    &:focus,
-    &:active {
-      border-color: $Dark-blue;
-    }
-  }
-  .reply-submit-btn {
-    @include send-btn;
-  }
-
-  .temp-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .avatar {
-      width: 12.5%;
-      max-width: 3rem;
-    }
+    @include Btn1($Moderate-blue, $Light-grayish-blue);
   }
 }
 
@@ -183,7 +278,8 @@ p {
   }
 }
 
-.send-comment {
+.send-comment,
+.reply-temporary {
   padding: 1rem;
   border-radius: 0.5rem;
   background: $White;
@@ -191,24 +287,23 @@ p {
   flex-direction: column-reverse;
   gap: 1rem;
 
+  &.reply-temporary {
+    transition: all 0.3s ease;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
   textarea {
-    resize: none;
-    padding: 1rem;
-    font-family: inherit;
-    border: 1px solid $Light-gray;
-    outline: none;
-    border-radius: 0.5rem;
-
-    &:focus,
-    &:active {
-      border-color: $Dark-blue;
-    }
+    @include textarea;
   }
-  .send-submit-btn {
-    @include send-btn;
+  .send-submit-btn,
+  .reply-submit-btn {
+    @include btn2($Moderate-blue, $Light-grayish-blue);
   }
 
-  .send-inner {
+  .send-inner,
+  .temp-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,6 +323,12 @@ p {
     display: none;
   }
 
+  .reply-section {
+    .line {
+      left: 2.5%;
+    }
+  }
+
   .comment-container {
     .comment {
       flex-direction: row;
@@ -239,15 +340,45 @@ p {
         }
       }
     }
+    .the-user {
+      .desktop-btn {
+        display: block;
+      }
+      .mobile-btn {
+        display: none;
+      }
+      .reply-initiate-btn {
+        display: none;
+      }
+
+      .user-exclusive-btns {
+        &.mobile-btn {
+          display: none;
+        }
+        &.desktop-btn {
+          display: flex;
+        }
+      }
+    }
   }
 
+  .send-comment,
   .reply-temporary {
     flex-direction: row;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
 
+    textarea {
+      flex: 1;
+    }
+
+    .send-inner,
     .temp-inner {
-      width: auto;
+      width: 3rem;
+
+      .avatar {
+        width: 100%;
+      }
     }
   }
 }

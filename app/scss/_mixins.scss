@@ -1,23 +1,39 @@
-@mixin replyBtn {
-  color: $Moderate-blue;
+@mixin Btn1($clr, $hover-clr) {
+  color: $clr;
   background: none;
   border: none;
   font-weight: 700;
+  font-family: inherit;
 
   &:hover {
-    color: $Light-grayish-blue;
+    color: $hover-clr;
   }
 }
 
-@mixin send-btn {
+@mixin btn2($bg-clr, $hover-clr) {
   padding: 1em 1.5em;
-  background: $Moderate-blue;
+  background: $bg-clr;
   border: none;
   border-radius: 0.5rem;
+  font-family: inherit;
   color: $White;
   font-weight: 500;
 
   &:hover {
-    background: $Light-grayish-blue;
+    background: $hover-clr;
+  }
+}
+
+@mixin textarea {
+  resize: none;
+  padding: 1rem;
+  font-family: inherit;
+  border: 1px solid $Light-gray;
+  outline: none;
+  border-radius: 0.5rem;
+
+  &:focus,
+  &:active {
+    border-color: $Dark-blue;
   }
 }
