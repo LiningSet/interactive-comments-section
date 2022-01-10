@@ -78,6 +78,7 @@ main {
   gap: 1rem;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
+  color: #324152;
   opacity: 0;
 }
 
@@ -430,9 +431,7 @@ main {
 }
 
 .reply-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   gap: 5vw;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -460,6 +459,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1rem;
+  width: 100%;
 }
 
 .send-comment,
@@ -557,10 +557,12 @@ main {
   50% {
     -webkit-transform: scale(1.125);
             transform: scale(1.125);
+    font-weight: 700;
   }
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
+    font-weight: 500;
   }
 }
 
@@ -568,10 +570,12 @@ main {
   50% {
     -webkit-transform: scale(1.125);
             transform: scale(1.125);
+    font-weight: 700;
   }
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
+    font-weight: 500;
   }
 }
 

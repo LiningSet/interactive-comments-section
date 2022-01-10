@@ -61,6 +61,7 @@ main {
     flex-direction: column;
     gap: 1rem;
     transform: scale(0.5);
+    color: rgb(50, 65, 82);
     opacity: 0;
 
     .options {
@@ -271,7 +272,7 @@ main {
 }
 
 .reply-section {
-  display: flex;
+  display: none;
   gap: 5vw;
   height: fit-content;
 
@@ -289,6 +290,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
     .reply {
       @extend .comment;
     }
@@ -342,9 +344,11 @@ main {
 @keyframes zoom {
   50% {
     transform: scale(1.125);
+    font-weight: 700;
   }
   100% {
     transform: scale(1);
+    font-weight: 500;
   }
 }
 
